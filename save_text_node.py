@@ -41,4 +41,10 @@ class SimpleSaveText:
             print("Save to disk disabled. Text only displayed in UI.")
 
         # Always return to UI so the box updates
-        return {"ui": {"text": [text]}, "result": (text,)}
+        return {
+            "ui": {
+                "text": [text],
+                "default_save_location": self.output_dir
+            },
+            "result": (text,)
+        }

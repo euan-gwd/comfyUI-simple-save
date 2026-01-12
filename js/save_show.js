@@ -18,7 +18,7 @@ app.registerExtension({
                 w.inputEl.style.cursor = "text";
                 w.inputEl.style.userSelect = "text";
                 w.inputEl.style.color = "white";
-                w.inputEl.placeholder = "Run workflow to see text...";
+                w.inputEl.placeholder = "Run character builder to see text...";
 
                 this.size = [400, 250];
                 return r;

@@ -44,7 +44,6 @@ class SimpleSaveText:
         return {
             "ui": {
                 "text": [text],
-                "default_save_location": self.output_dir
             },
             "result": (text,)
         }

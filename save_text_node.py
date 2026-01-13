@@ -3,6 +3,7 @@ from datetime import datetime
 import folder_paths
 
 class SimpleSaveText:
+    default_output_dir = folder_paths.get_output_directory()
     def __init__(self):
         self.output_dir = folder_paths.get_output_directory()
 
@@ -13,7 +14,7 @@ class SimpleSaveText:
                 "text": ("STRING", {"forceInput": True}),
                 "save_to_disk": ("BOOLEAN", {"default": False}),
                 "filename_prefix": ("STRING", {"default": "Prompt_"}),
-                "save_location": ("STRING", {"default": ""}),
+                "save_location": ("STRING", {"default": s.default_output_dir}),
             }
         }
 

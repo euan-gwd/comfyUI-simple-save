@@ -1,8 +1,13 @@
-# In __init__.py
-from .save_text_node import SimpleSaveText
-from .show_text import ShowText
+from .save_text import SimpleSaveText
+from .show_text import SimpleShowText
 
-NODE_CLASS_MAPPINGS = {"SimpleSaveText": SimpleSaveText, "ShowText|pysssss": ShowText,}
-NODE_DISPLAY_NAME_MAPPINGS = {"SimpleSaveText": "💾 View & Save Text", "ShowText|pysssss": "Show Text 🐍",}
+NODE_CLASS_MAPPINGS = {
+    "SaveText|SimpleText": SimpleSaveText,
+    "ShowText|SimpleText": SimpleShowText,
+}
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "SaveText|SimpleText": "Save Text 💾",
+    "ShowText|SimpleText": "Show Text 🐍",
+}
 WEB_DIRECTORY = "./js"
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS", "WEB_DIRECTORY"]

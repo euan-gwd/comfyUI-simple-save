@@ -1,3 +1,6 @@
+// Based on original code by pysssss (https://github.com/pysssss/comfyui-show-text)
+// Forked in 2026
+
 import { app } from "../../../scripts/app.js";
 import { ComfyWidgets } from "../../../scripts/widgets.js";
 
@@ -6,9 +9,9 @@ import { ComfyWidgets } from "../../../scripts/widgets.js";
 // TODO: This should need to be so complicated. Refactor at some point.
 
 app.registerExtension({
-	name: "pysssss.ShowText",
+	name: "SimpleShowText",
 	async beforeRegisterNodeDef(nodeType, nodeData, app) {
-		if (nodeData.name === "ShowText|pysssss") {
+		if (nodeData.name === "SimpleShowText") {
 			function populate(text) {
 				if (this.widgets) {
 					// On older frontend versions there is a hidden converted-widget

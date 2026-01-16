@@ -1,4 +1,4 @@
-class ShowText:
+class SimpleShowText:
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -17,7 +17,7 @@ class ShowText:
     OUTPUT_NODE = True
     OUTPUT_IS_LIST = (True,)
 
-    CATEGORY = "utils"
+    CATEGORY = "SimpleText"
 
     def notify(self, text, unique_id=None, extra_pnginfo=None):
         if unique_id is not None and extra_pnginfo is not None:
@@ -41,9 +41,9 @@ class ShowText:
 
 
 NODE_CLASS_MAPPINGS = {
-    "ShowText|pysssss": ShowText,
+    "ShowText|SimpleText": SimpleShowText,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "ShowText|pysssss": "Show Text 🐍",
+    "ShowText|SimpleText": "Show Text 🐍",
 }

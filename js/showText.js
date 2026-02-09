@@ -31,9 +31,19 @@ app.registerExtension({
 					if (!(list instanceof Array)) list = [list];
 					for (const l of list) {
 						const w = ComfyWidgets["STRING"](this, "text_" + this.widgets?.length ?? 0, ["STRING", { multiline: true }], app).widget;
-						w.inputEl.readOnly = true;
 						w.inputEl.style.opacity = 0.6;
 						w.value = l;
+
+						// Add event listener to update node's widgets_values
+						w.inputEl.onchange = (function (node, widgetIndex) {
+							return function (e) {
+								if (!node.widgets_values) {
+									node.widgets_values = [];
+								}
+								node.widgets_values[widgetIndex] = e.target.value;
+								app.graph.setDirtyCanvas(true, false); // Mark canvas dirty to reflect changes
+							};
+						})(this, this.widgets.length - 1); // Pass 'this' (node) and the current widget index
 					}
 				}
 

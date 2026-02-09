@@ -62,10 +62,16 @@ app.registerExtension({
 
 			// When the node is executed we will be sent the input text, display this in the widget
 			const onExecuted = nodeType.prototype.onExecuted;
-       nodeType.prototype.onExecuted = function (message) {
-            onExecuted?.apply(this, arguments);
-            populate.call(this, message.ui?.text ?? message.text);
-       };
+			nodeType.prototype.onExecuted = function (message) {
+				onExecuted?.apply(this, arguments);
+				if (message.ui?.last_input) {
+					if (!this.properties) {
+						this.properties = {};
+					}
+					this.properties.last_input = message.ui.last_input[0];
+				}
+				populate.call(this, message.ui?.text ?? message.text);
+			};
 
 			const VALUES = Symbol();
 			const configure = nodeType.prototype.configure;
